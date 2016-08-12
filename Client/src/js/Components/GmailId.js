@@ -1,6 +1,6 @@
 var React = require('react');
-var DraftChildComponent = require('./draft');
-var SubContainer = React.createClass({
+var GmailList = require('./GmailList');
+var GmailId = React.createClass({
   getInitialState:function()
   {
     return {ids:[]};
@@ -24,8 +24,8 @@ componentWillMount:function()
 },
 render:function()
 {
-  return(<div className="col-md-10"> <DraftChildComponent id2={this.state.ids}/></div>)
+  return(<div className="col-md-10"> <GmailList id2={this.state.ids}/></div>)
 }
 });
 
-module.exports = SubContainer;
+module.exports = GmailId;

@@ -1,5 +1,5 @@
 var React = require('react');
-var MailComponent = React.createClass({
+var GmailMessages = React.createClass({
 
   render: function(){
     //console.log("476566");
@@ -20,4 +20,4 @@ var MailComponent = React.createClass({
                    }
 
                    });
-                   module.exports = MailComponent;
+                   module.exports = GmailMessages;

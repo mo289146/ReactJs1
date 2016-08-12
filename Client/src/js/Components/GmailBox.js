@@ -1,7 +1,7 @@
 var React = require('react');
-var SubContainer = require('./Subcontainer');
+var GmailId = require('./GmailId');
 var Compose = require('./Compose');
-var NavChildComponents = require('./NavChildComponents');
+var ChildComponent = require('./ChildComponents');
 
 var loadedData = false;
 var GmailBox = React.createClass({
@@ -19,7 +19,7 @@ var GmailBox = React.createClass({
     var REDIRECT    =   'http://localhost:8080';
     var TYPE        =   'token';
     var _url        =   OAUTHURL + 'scope=' + SCOPE + '&client_id=' + CLIENTID + '&redirect_uri=' + REDIRECT + '&response_type=' + TYPE;
-    var win         =   window.open(_url, "windowname1", 'width=800, height=600');
+    var win         =   window.open(_url, "windowname1", 'width= 800, height=600');
 
     var pollTimer   =   window.setInterval(function()
     {
@@ -86,7 +86,7 @@ var GmailBox = React.createClass({
   {
     var login;
     if(loadedData){
-      login = <SubContainer messageData={this.state.messageWithId}/>;
+      login = <GmailId messageData={this.state.messageWithId}/>;
     }
     //console.log(this.state.messageWithId);
       return(
@@ -97,18 +97,23 @@ var GmailBox = React.createClass({
               <div className="row">
               <button id="authorize-button" onClick={this.gmailLogin} className="btn btn-primary pull-right">Login</button>
               </div>
-              <NavChildComponents/>
-              <Compose/><br/>
-              <div className="row">
-              <div className="col-md-2">
-              <button id="authorize-button" onClick={this.gmailLogin} className="btn btn-primary pull-left">Inbox</button><br/>
-              <br/><a href="#" className="btn" type="button"><h4>All</h4></a><br/><a href="#" className="btn" type="button"><h4>Drafts</h4></a><br/> <a href="#" className="btn" type="button"><h4>Sent</h4></a> <br/><a href="#" className="btn" type="button"><h4>Trash</h4></a> <br/><a href="#" className="btn" type="button"><h4>Rules</h4></a><br/>
+              <ChildComponent />
+              <Compose /><br/>
+              <div className="container">
+              <div className="row1">
+              <div className="col-md-2" id ="label1">
+              <button id="authorize-button1" onClick={this.gmailLogin} className="btn btn-primary pull-left">Inbox</button><br/>
+              <br/><a href="#" className="btn" type="button"><h4>All</h4></a><br/>
+                    <a href="#" className="btn" type="button"><h4>Drafts</h4></a><br/>
+                    <a href="#" className="btn" type="button"><h4>Sent</h4></a> <br/>
+                    <a href="#" className="btn" type="button"><h4>Trash</h4></a> <br/>
               </div>
               {login}
               </div>
                 </div>
               </div>
             </div>
+          </div>
           </div>
       );
   }

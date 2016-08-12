@@ -20744,8 +20744,83 @@ module.exports = validateDOMNesting;
 module.exports = require('./lib/React');
 
 },{"./lib/React":55}],175:[function(require,module,exports){
+var React = require('react');
+//var GrandChildComponent = require('./GrandChildComponents');
+//var LeftChildComponent = require('./leftchild');
+//var RightChildComponent = require('./rightchild');
+var ChildComponent = React.createClass({displayName: "ChildComponent",
+render: function(){
+  return(
+    React.createElement("div", {className: "container-fluid"}, 
+    React.createElement("nav", {className: "navbar navbar-inverse", role: "navigation"}, 
+      React.createElement("div", {className: "container-fluid"}, 
+        React.createElement("div", {className: "navbar-header"}, 
+          React.createElement("button", {type: "button", className: "navbar-toggle collapsed", "data-toggle": "collapse", "data-target": "#bs-example-navbar-collapse-1", "aria-expanded": "false"}, 
+            React.createElement("span", {className: "sr-only"}, "Toggle navigation"), 
+            React.createElement("span", {className: "icon-bar"}), 
+            React.createElement("span", {className: "icon-bar"}), 
+            React.createElement("span", {className: "icon-bar"})
+          ), 
+          React.createElement("a", {className: "navbar-brand", href: "#"}, React.createElement("img", {id: "brand-image", height: "30", width: "70", alt: "Brand", src: "images/gmail.jpg"}))
+        ), 
+
+        
+          React.createElement("form", {className: "navbar-form navbar-left", role: "search"}, 
+            React.createElement("div", {className: "form-group", id: "search"}, 
+              React.createElement("input", {type: "text", className: "form-control", placeholder: "Search"})
+            ), 
+            React.createElement("button", {type: "submit", className: "btn btn-default"}, "Submit")
+          ), 
+          React.createElement("ul", {className: "nav navbar-nav navbar-right"}, 
+          React.createElement("li", null, 
+      React.createElement("a", {href: "#", "aria-label": "Previous"}, 
+        React.createElement("span", {"aria-hidden": "true"}, "«")
+      )
+    ), 
+    React.createElement("li", null, React.createElement("a", {href: "#"}, "1")), 
+    React.createElement("li", null, React.createElement("a", {href: "#"}, "2")), 
+    React.createElement("li", null, React.createElement("a", {href: "#"}, "3")), 
+    React.createElement("li", null, 
+      React.createElement("a", {href: "#", "aria-label": "Next"}, 
+        React.createElement("span", {"aria-hidden": "true"}, "»")
+      )
+    ), 
+            React.createElement("li", {className: "dropdown"}, 
+              React.createElement("a", {href: "#", className: "dropdown-toggle", "data-toggle": "dropdown", role: "button", "aria-haspopup": "true", "aria-expanded": "false"}, " ", React.createElement("span", {className: "caret"})), 
+              React.createElement("ul", {className: "dropdown-menu"}, 
+                React.createElement("li", null, 
+                                React.createElement("a", {href: "#"}, React.createElement("span", {className: "glyphicon glyphicon-wrench", id: "setting"}), " Settings")
+                            ), 
+
+                            React.createElement("li", null, 
+                                React.createElement("a", {href: "#"}, React.createElement("span", {className: "glyphicon glyphicon-refresh"}), " Update Profile")
+                            ), 
+
+                            React.createElement("li", null, 
+                                React.createElement("a", {href: "#"}, React.createElement("span", {className: "glyphicon glyphicon-briefcase"}), " Billing")
+                            ), 
+
+                            React.createElement("li", {className: "divider"}), 
+
+                            React.createElement("li", null, 
+                                React.createElement("a", {href: "#"}, React.createElement("span", {className: "glyphicon glyphicon-off"}), " Sign out")
+                            )
+              )
+
+            )
+          )
+        )
+
+    )
+        )
+
+);
+}
+});
+module.exports = ChildComponent;
+},{"react":174}],176:[function(require,module,exports){
 var  React=require('react');
-var ComposeChildComponent = require('./ComposeChild');
+//var ComposeChildComponent = require('./ComposeChild');
 var Compose=React.createClass(
 {displayName: "Compose",
 
@@ -20793,8 +20868,20 @@ render:function()
   return (
 
     React.createElement("div", {className: "container"}, 
-    React.createElement("div", {className: "inbox-body"}, 
-    React.createElement("a", {href: "#myModal", "data-toggle": "modal", title: "Compose", className: "btn btn-compose"}, 
+    React.createElement("div", {className: "row profile"}, 
+		React.createElement("div", {className: "col-md-2"}, 
+			React.createElement("div", {className: "profile-sidebar"}, 
+      React.createElement("div", {className: "profile-userpic"}, 
+					React.createElement("img", {src: "images/Abbas.jpg", className: "img-responsive", alt: ""})
+				), 
+        					React.createElement("div", {className: "profile-usertitle-name"}, "Mohammed Abbas"
+					)
+          )
+				)
+        ), 
+          React.createElement("div", {className: "inbox-body"}, 
+
+    React.createElement("a", {href: "#myModal", "data-toggle": "modal", title: "Compose", className: "btn btn-compose", id: "composer"}, 
       React.createElement("h5", null, "Compose")
     ), 
     React.createElement("div", {"aria-hidden": "true", "aria-labelledby": "myModalLabel", role: "dialog", tabIndex: "-1", id: "myModal", className: "modal fade"}, 
@@ -20859,82 +20946,11 @@ render:function()
 
 })
 module.exports=Compose;
-},{"./ComposeChild":176,"react":174}],176:[function(require,module,exports){
-var React=require('react');
-//var ComposeGrandChildComponent=require('./ComposeGrandChild.js');
-var ComposeChildComponent=React.createClass({displayName: "ComposeChildComponent",
-  render:function(){
-    return (
-
-      React.createElement("div", {className: "container", id: "mycompose"}, 
-          React.createElement("div", {className: "mail-box"}, 
-                React.createElement("aside", {className: "sm-side"}, 
-                    React.createElement("div", {className: "inbox-body"}, 
-                    React.createElement("div", {className: "container"}, 
-                        React.createElement("div", {"aria-hidden": "true", "aria-labelledby": "myModalLabel", role: "dialog", tabIndex: "-1", id: "myModal", className: "modal fade"}, 
-                            React.createElement("div", {className: "modal-dialog", id: "model1"}, 
-                                  React.createElement("div", {className: "modal-content"}, 
-                                      React.createElement("div", {className: "modal-header"}, 
-                                            React.createElement("button", {"aria-hidden": "true", "data-dismiss": "modal", className: "close", type: "button"}, "X"), 
-                                            React.createElement("h4", {className: "modal-title"}, "New Message")
-                                      ), 
-                                          React.createElement("div", {className: "modal-body"}, 
-                                              React.createElement("form", {role: "form", className: "form-horizontal"}, 
-                                                  React.createElement("div", {className: "form-group"}, 
-                                                      React.createElement("label", {className: "col-lg-2 control-label"}, "To"), 
-                                                      React.createElement("div", {className: "col-lg-10"}, 
-                                                          React.createElement("input", {type: "text", placeholder: "", id: "inputEmail1", className: "form-control"})
-                                                      )
-                                                  ), 
-                                                  React.createElement("div", {className: "form-group"}, 
-                                                      React.createElement("label", {className: "col-lg-2 control-label"}, "Cc / Bcc"), 
-                                                      React.createElement("div", {className: "col-lg-10"}, 
-                                                          React.createElement("input", {type: "text", placeholder: "", id: "cc", className: "form-control"})
-                                                      )
-                                                  ), 
-                                                  React.createElement("div", {className: "form-group"}, 
-                                                      React.createElement("label", {className: "col-lg-2 control-label"}, "Subject"), 
-                                                      React.createElement("div", {className: "col-lg-10"}, 
-                                                          React.createElement("input", {type: "text", placeholder: "", id: "inputPassword1", className: "form-control"})
-                                                      )
-                                                  ), 
-                                                  React.createElement("div", {className: "form-group"}, 
-                                                      React.createElement("label", {className: "col-lg-2 control-label"}, "Message"), 
-                                                      React.createElement("div", {className: "col-lg-10"}, 
-                                                          React.createElement("textarea", {rows: "10", cols: "30", className: "form-control", id: "", name: ""})
-                                                      )
-                                                  ), 
-
-                                                  React.createElement("div", {className: "form-group"}, 
-                                                      React.createElement("div", {className: "col-lg-offset-2 col-lg-10"}, 
-                                                          React.createElement("span", {className: "btn green fileinput-button"}, 
-                                                            React.createElement("i", {className: "fa fa-plus fa fa-white"}), 
-                                                            React.createElement("span", null, "Attachment"), 
-                                                            React.createElement("input", {type: "file", name: "files[]", multiple: ""})
-                                                          ), 
-                                                          React.createElement("button", {className: "btn btn-send", type: "submit"}, "Send")
-                                                      )
-                                                  )
-                                              )
-                                          )
-                                      )
-                                  )
-                              )
-
-                              )
-                          )
-                      )
-                  )
-       )
-    )
-    }
-  })
-  module.exports=ComposeChildComponent;
 },{"react":174}],177:[function(require,module,exports){
 var React = require('react');
-var SubContainer = require('./Subcontainer');
+var GmailId = require('./GmailId');
 var Compose = require('./Compose');
-var NavChildComponents = require('./NavChildComponents');
+var ChildComponent = require('./ChildComponents');
 
 var loadedData = false;
 var GmailBox = React.createClass({displayName: "GmailBox",
@@ -20952,7 +20968,7 @@ var GmailBox = React.createClass({displayName: "GmailBox",
     var REDIRECT    =   'http://localhost:8080';
     var TYPE        =   'token';
     var _url        =   OAUTHURL + 'scope=' + SCOPE + '&client_id=' + CLIENTID + '&redirect_uri=' + REDIRECT + '&response_type=' + TYPE;
-    var win         =   window.open(_url, "windowname1", 'width=800, height=600');
+    var win         =   window.open(_url, "windowname1", 'width= 800, height=600');
 
     var pollTimer   =   window.setInterval(function()
     {
@@ -21019,7 +21035,7 @@ var GmailBox = React.createClass({displayName: "GmailBox",
   {
     var login;
     if(loadedData){
-      login = React.createElement(SubContainer, {messageData: this.state.messageWithId});
+      login = React.createElement(GmailId, {messageData: this.state.messageWithId});
     }
     //console.log(this.state.messageWithId);
       return(
@@ -21030,12 +21046,16 @@ var GmailBox = React.createClass({displayName: "GmailBox",
               React.createElement("div", {className: "row"}, 
               React.createElement("button", {id: "authorize-button", onClick: this.gmailLogin, className: "btn btn-primary pull-right"}, "Login")
               ), 
-              React.createElement(NavChildComponents, null), 
+              React.createElement(ChildComponent, null), 
               React.createElement(Compose, null), React.createElement("br", null), 
-              React.createElement("div", {className: "row"}, 
-              React.createElement("div", {className: "col-md-2"}, 
-              React.createElement("button", {id: "authorize-button", onClick: this.gmailLogin, className: "btn btn-primary pull-left"}, "Inbox"), React.createElement("br", null), 
-              React.createElement("br", null), React.createElement("a", {href: "#", className: "btn", type: "button"}, React.createElement("h4", null, "All")), React.createElement("br", null), React.createElement("a", {href: "#", className: "btn", type: "button"}, React.createElement("h4", null, "Drafts")), React.createElement("br", null), " ", React.createElement("a", {href: "#", className: "btn", type: "button"}, React.createElement("h4", null, "Sent")), " ", React.createElement("br", null), React.createElement("a", {href: "#", className: "btn", type: "button"}, React.createElement("h4", null, "Trash")), " ", React.createElement("br", null), React.createElement("a", {href: "#", className: "btn", type: "button"}, React.createElement("h4", null, "Rules")), React.createElement("br", null)
+              React.createElement("div", {className: "container"}, 
+              React.createElement("div", {className: "row1"}, 
+              React.createElement("div", {className: "col-md-2", id: "label1"}, 
+              React.createElement("button", {id: "authorize-button1", onClick: this.gmailLogin, className: "btn btn-primary pull-left"}, "Inbox"), React.createElement("br", null), 
+              React.createElement("br", null), React.createElement("a", {href: "#", className: "btn", type: "button"}, React.createElement("h4", null, "All")), React.createElement("br", null), 
+                    React.createElement("a", {href: "#", className: "btn", type: "button"}, React.createElement("h4", null, "Drafts")), React.createElement("br", null), 
+                    React.createElement("a", {href: "#", className: "btn", type: "button"}, React.createElement("h4", null, "Sent")), " ", React.createElement("br", null), 
+                    React.createElement("a", {href: "#", className: "btn", type: "button"}, React.createElement("h4", null, "Trash")), " ", React.createElement("br", null)
               ), 
               login
               )
@@ -21043,85 +21063,15 @@ var GmailBox = React.createClass({displayName: "GmailBox",
               )
             )
           )
+          )
       );
   }
   });
 module.exports = GmailBox;
-},{"./Compose":175,"./NavChildComponents":179,"./Subcontainer":180,"react":174}],178:[function(require,module,exports){
+},{"./ChildComponents":175,"./Compose":176,"./GmailId":178,"react":174}],178:[function(require,module,exports){
 var React = require('react');
-var MailComponent = React.createClass({displayName: "MailComponent",
-
-  render: function(){
-    //console.log("476566");
-    //console.log(arr);
-    return(
-      React.createElement("div", {className: "container-fluid"}, 
-      React.createElement("table", {className: "table table-inbox table-hover"}, 
-                       React.createElement("tbody", null, 
-                       React.createElement("tr", null, 
-                       React.createElement("td", {className: "view-message"}, this.props.froms), 
-                        React.createElement("td", {className: "view-message"}, this.props.to), 
-                         React.createElement("td", {className: "view-message  text-right"}, this.props.dateg)
-                         )
-                         )
-                         )
-                         )
-                   );
-                   }
-
-                   });
-                   module.exports = MailComponent;
-},{"react":174}],179:[function(require,module,exports){
-var React = require('react');
-//var GrandChildComponent = require('./GrandChildComponents');
-//var LeftChildComponent = require('./leftchild');
-//var RightChildComponent = require('./rightchild');
-var NavChildComponent = React.createClass({displayName: "NavChildComponent",
-render: function(){
-  return(
-    React.createElement("div", {className: "container-fluid"}, 
-      React.createElement("div", {className: "row", id: "row1"}, 
-        React.createElement("div", {className: "col-md-3"}, 
-        React.createElement("a", {className: "navbar-brand", href: "/"}, React.createElement("img", {src: "images/gmail.jpg", alt: "Gmail"}))
-        ), 
-        React.createElement("div", {className: "col-md-6"}, 
-        React.createElement("form", {className: "navbar-form"}, 
-        React.createElement("div", {id: "searchId"}, 
-              React.createElement("input", {className: "form-control", type: "text"}), 
-              React.createElement("button", {type: "submit", className: "btn btn-default pull-left", id: "glyphSearch", role: "button", "aria-haspopup": "true", "aria-expanded": "false"}, React.createElement("span", {className: "glyphicon glyphicon-search"}))
-              )
-            )
-        ), 
-        React.createElement("div", {className: "col-md-3"}, 
-        React.createElement("div", {id: "userDrop"}, 
-        React.createElement("ul", {className: "nav navbar"}, 
-          React.createElement("li", {className: "dropdown"}, 
-            React.createElement("a", {href: "#", className: "dropdown-toggle", "data-toggle": "dropdown", role: "button", "aria-haspopup": "true", "aria-expanded": "false"}, React.createElement("span", {className: "glyphicon glyphicon-user"}), "Abbas", React.createElement("span", {className: "caret"})), 
-          React.createElement("ul", {className: "dropdown-menu"}, 
-          React.createElement("li", null, 
-            React.createElement("a", {href: "#"}, React.createElement("span", {className: "glyphicon glyphicon-wrench"}), "Settings")
-          ), 
-          React.createElement("li", null, 
-            React.createElement("a", {href: "#"}, React.createElement("span", {className: "glyphicon glyphicon-refresh"}), "Update Profile")
-          ), 
-          React.createElement("li", null, 
-            React.createElement("a", {href: "#"}, React.createElement("span", {className: "glyphicon glyphicon-off"}), "Sign Out")
-          )
-          )
-        )
-      )
-      )
-        )
-      )
-  )
-);
-}
-});
-module.exports = NavChildComponent;
-},{"react":174}],180:[function(require,module,exports){
-var React = require('react');
-var DraftChildComponent = require('./draft');
-var SubContainer = React.createClass({displayName: "SubContainer",
+var GmailList = require('./GmailList');
+var GmailId = React.createClass({displayName: "GmailId",
   getInitialState:function()
   {
     return {ids:[]};
@@ -21145,20 +21095,20 @@ componentWillMount:function()
 },
 render:function()
 {
-  return(React.createElement("div", {className: "col-md-10"}, " ", React.createElement(DraftChildComponent, {id2: this.state.ids})))
+  return(React.createElement("div", {className: "col-md-10"}, " ", React.createElement(GmailList, {id2: this.state.ids})))
 }
 });
 
-module.exports = SubContainer;
-},{"./draft":181,"react":174}],181:[function(require,module,exports){
+module.exports = GmailId;
+},{"./GmailList":179,"react":174}],179:[function(require,module,exports){
 var React = require('react');
-var MailComponent = require('./Mails');
+var GmailMessages = require('./GmailMessages');
 //var GrandChildComponent1 = require('./GrandChildComponents1');
  //var arr=[];
 var count=0;
 var retrievedMailArr=[];
 var pushedArr=[];
-var DraftChildComponent = React.createClass({displayName: "DraftChildComponent",
+var GmailList = React.createClass({displayName: "GmailList",
 
   getInitialState: function(){
     return {data:[]};
@@ -21178,7 +21128,7 @@ var DraftChildComponent = React.createClass({displayName: "DraftChildComponent",
       var accessToken1 = localStorage.getItem('gToken');
 
       $.ajax({
-       url: 'https://www.googleapis.com/gmail/v1/users/abbasaslam.abbas%40gmail.com/messages'+listid[i]+'?fields=payload%2Fheaders&key={AIzaSyCHUBMVPTzgByzKsrAKYO3Rt6YPt9BjOJI}',
+       url: 'https://www.googleapis.com/gmail/v1/users/me/messages/'+listid[i]+'?fields=payload%2Fheaders&key={AIzaSyCHUBMVPTzgByzKsrAKYO3Rt6YPt9BjOJI}',
        dataType: 'json',
        async :false,
        type: 'GET',
@@ -21200,36 +21150,7 @@ var DraftChildComponent = React.createClass({displayName: "DraftChildComponent",
              pushedArr.push(aggregatedArray);
              this.setState({data:pushedArr});
              console.log('this state called-->'+this.state.data);
-      //  console.log("aggregatedArray123---->"+JSON.stringify(aggregatedArray));
-         //var tempProps=this.props.emails;
 
-         /*for(var i=0;i<data.payload.headers.length;i++)
-         {
-
-        if(data.payload.headers[i].name=="From")
-        {
-          froms=data.payload.headers[i].value;
-
-        }
-        if(data.payload.headers[i].name=="Subject")
-        {
-          to=data.payload.headers[i].value;
-        }
-        if(data.payload.headers[i].name=="Date")
-        {
-          dateg=data.payload.headers[i].value;
-        }
-
-        console.log("From"+froms+"Subject"+to+"Date"+dateg);
-      //  arr.push(<tr><td>{froms}</td>
-        //<td>{to}</td>
-        //<td>{dateg}</td></tr>);
-      //  console.log(froms + " "+to + " "+ dateg);
-    }*/
-
-      //arr.push(<MailComponent froms={froms} to={to} dateg={dateg}/>);
-    //  console.log('arr22----------->'+JSON.stringify(arr));
-//arr.push(<tr><td>{froms}</td><td>{to}</td><td>{dateg}</td></tr>);
        }.bind(this),
        error: function(xhr, status, err) {
          console.log("error");
@@ -21238,9 +21159,7 @@ var DraftChildComponent = React.createClass({displayName: "DraftChildComponent",
     });
 
  }
-// console.log("angellllllll77777999997777777777");
- //console.log(arr);
-//console.log(count);
+
   },
 render: function(){
   var arr=[];
@@ -21249,41 +21168,17 @@ render: function(){
    var dateg='';
 
 var aggregatedArray1=this.state.data;
-//console.log('State data--->'+JSON.stringify(aggregatedArray1));
+
 console.log('State data2--->'+this.state.data);
 
-
-//var tempProps=this.props.aggregatedArray1;
    aggregatedArray1.forEach(function(email) {
      console.log('email--->'+JSON.stringify(email));
        froms=email[0].value;
        to=email[1].value;
        dateg= email[2].value;
-      // mailId = email[3];
-       arr.push(React.createElement(MailComponent, {froms: froms, to: to, dateg: dateg}));
+
+       arr.push(React.createElement(GmailMessages, {froms: froms, to: to, dateg: dateg}));
    });
-
-/*  for(var j=0;j<aggregatedArray1.length;j++) {
-    //console.log("data---->"+JSON.stringify(data));
-
-
-       //console.log('Values---->'+aggregatedArray1[j].value);
-      if(aggregatedArray1[0].name=='From'){
-        froms=aggregatedArray1[0].value;
-      }
-
-      if(aggregatedArray1[0].name=='Subject'){
-        to=aggregatedArray1[0].value;
-      }
-      if(aggregatedArray1[0].name=='Date'){
-        dateg=aggregatedArray1[0].value;
-      }
-      //mailId = email[3];
-     arr.push(<MailComponent froms={froms} to={to} dateg={dateg} />);
-     console.log("final"+arr);
-  }*/
-  //console.log("476566");
-  //console.log(arr);
   return(React.createElement("div", {className: "container-fluid"}, 
   React.createElement("div", {className: "col-md-12"}, 
   React.createElement("table", {className: "table table-inbox table-hover"}, 
@@ -21296,11 +21191,35 @@ console.log('State data2--->'+this.state.data);
                  )
                  }
                  });
-module.exports = DraftChildComponent;
-},{"./Mails":178,"react":174}],182:[function(require,module,exports){
+module.exports = GmailList;
+},{"./GmailMessages":180,"react":174}],180:[function(require,module,exports){
+var React = require('react');
+var GmailMessages = React.createClass({displayName: "GmailMessages",
+
+  render: function(){
+    //console.log("476566");
+    //console.log(arr);
+    return(
+      React.createElement("div", {className: "container-fluid"}, 
+      React.createElement("table", {className: "table table-inbox table-hover"}, 
+                       React.createElement("tbody", null, 
+                       React.createElement("tr", null, 
+                       React.createElement("td", {className: "view-message"}, this.props.froms), 
+                        React.createElement("td", {className: "view-message"}, this.props.to), 
+                         React.createElement("td", {className: "view-message  text-right"}, this.props.dateg)
+                         )
+                         )
+                         )
+                         )
+                   );
+                   }
+
+                   });
+                   module.exports = GmailMessages;
+},{"react":174}],181:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
-var  GmailBox= require('./Components/GmailBox');
+var GmailBox= require('./Components/GmailBox');
 ReactDOM.render(React.createElement(GmailBox, null),document.getElementById('app'));
 //render(<MainComponent/>,document.getElementById('app1'));
-},{"./Components/GmailBox":177,"react":174,"react-dom":29}]},{},[182]);
+},{"./Components/GmailBox":177,"react":174,"react-dom":29}]},{},[181]);

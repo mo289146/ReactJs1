@@ -1,4 +1,5 @@
-.twPc-avatarLink {
+
+  .twPc-avatarLink {
   background-color: #fff;
   border-radius: 6px;
   display: inline-block !important;
@@ -83,9 +84,12 @@ padding-bottom: 16px;
    display: inline-block;
    padding: 5px 10px;
 }
+
+
 .inbox-body .modal .modal-body input, .inbox-body .modal .modal-body textarea {
    border: 1px solid #e6e6e6 ;
    box-shadow: none;
+
 }
 .btn-send, .btn-send:hover {
    background: none repeat scroll 0 0 #00a8b3 ;
@@ -145,4 +149,50 @@ ul.inbox-pagination li {
 .mail-checkbox:hover{
  background: none repeat scroll 0 0 #f5675c ;
  color: #fff;
+}
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+
+.profile-usertitle-name {
+  color: #008000;
+  text-align: center;
+  margin-top: 10px;
+
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usermenu {
+  margin-top: 10px;
+}
+
+
+.row1 {
+  text-align: left;;
+  width: 100%;
+}
+
+#composer{
+  border-color: blue;
+  background-color: #7aecd6;
+  font-style: oblique;
+}
+
+#label1{
+  padding; 20px;
+  margin-top: 4px;
+  margin-bottom: 2px;
 }

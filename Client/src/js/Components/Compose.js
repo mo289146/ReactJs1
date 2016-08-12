@@ -1,5 +1,5 @@
 var  React=require('react');
-var ComposeChildComponent = require('./ComposeChild');
+//var ComposeChildComponent = require('./ComposeChild');
 var Compose=React.createClass(
 {
 
@@ -47,8 +47,20 @@ render:function()
   return (
 
     <div className="container">
-    <div className="inbox-body">
-    <a href="#myModal" data-toggle="modal"  title="Compose" className="btn btn-compose">
+    <div className="row profile">
+		<div className="col-md-2">
+			<div className="profile-sidebar">
+      <div className="profile-userpic">
+					<img src="images/Abbas.jpg" className="img-responsive" alt="" />
+				</div>
+        					<div className="profile-usertitle-name">Mohammed Abbas
+					</div>
+          </div>
+				</div>
+        </div>
+          <div className="inbox-body">
+
+    <a href="#myModal" data-toggle="modal"  title="Compose" className="btn btn-compose" id="composer">
       <h5>Compose</h5>
     </a>
     <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabIndex="-1" id="myModal" className="modal fade">
